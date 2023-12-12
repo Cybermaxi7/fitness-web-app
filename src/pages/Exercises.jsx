@@ -45,10 +45,10 @@ export default function Exercises() {
                             alt="exercise1"
                             className="rounded-lg"
                         />
-                        <p className="font-semibold text-lg md:text-xl text-center capitalize">
+                        <p className="font-semibold text-sm sm:text-lg md:text-xl text-center capitalize">
                             {exercise.name}
                         </p>
-                        <p className="text-lg">{exercise.target}</p>
+                        <p className="text-sm md:text-lg">{exercise.target}</p>
                         <Link to="" className="btn text-white">
                             View Exercise
                         </Link>

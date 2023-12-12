@@ -38,9 +38,9 @@ export default function Filter({ filterField, options, scrollToRef }) {
                         option.value === currentFilter
                             ? "bg-green-600 text-white"
                             : "bg-gray-100"
-                    } border-none rounded-lg font-semibold text-lg px-2 py-1 transition whitespace-nowrap duration-300 ${
+                    } border-none rounded-lg font-semibold text-xs sm:text-sm md:text-lg px-2 py-1 transition whitespace-nowrap duration-300 ${
                         option.value !== currentFilter
-                            ? "hover:bg-brand-600 hover:text-brand-50"
+                            ? "hover:bg-green-500 hover:text-white"
                             : ""
                     }`}
                     disabled={option.value === currentFilter}
