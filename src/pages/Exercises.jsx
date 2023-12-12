@@ -49,7 +49,10 @@ export default function Exercises() {
                             {exercise.name}
                         </p>
                         <p className="text-sm md:text-lg">{exercise.target}</p>
-                        <Link to="" className="btn text-white">
+                        <Link
+                            to={`/exercise/${exercise.id}`}
+                            className="btn text-white"
+                        >
                             View Exercise
                         </Link>
                     </div>

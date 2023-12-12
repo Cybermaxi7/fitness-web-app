@@ -46,3 +46,20 @@ export async function fetchTargets() {
     const result = await response.json();
     return result;
 }
+
+export async function fetchExercise(id) {
+    const url = `https://exercisedb.p.rapidapi.com/exercises/exercise/${id}`;
+    const options = {
+        method: "GET",
+        headers: {
+            "X-RapidAPI-Key":
+                "97cc3a8cb7msh46b82cd76a6714dp15431ejsn83232fa17d53",
+            "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+        },
+    };
+
+    const response = await fetch(url, options);
+    console.log(response);
+    const result = await response.json();
+    return result;
+}
