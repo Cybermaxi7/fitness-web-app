@@ -13,7 +13,7 @@ export default function Exercise() {
             {exercise ? (
                 <div className="bg-white w-full h-full rounded-lg flex items-center justify-between px-6 py-8  text-stone-800 flex-col gap-8 lg:gap-2 lg:flex-row">
                     <div className="h-full w-full lg:w-1/2">
-                        <Image src={exercise.gifUrl} alt="image" />
+                        <Image src={exercise.gifUrl} alt={exercise.name} />
                     </div>
                     <div className="h-full  w-full lg:w-1/2 flex flex-col gap-4 items-start justify-center">
                         <h2 className="uppercase text-green-500 font-bold text-sm sm:text-lg md:text-xl text-center self-center">
