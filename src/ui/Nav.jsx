@@ -2,14 +2,20 @@ import { useEffect, useState } from "react";
 import { CgClose } from "react-icons/cg";
 import { RiMenu2Fill } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
+import { useQueryContext } from "../context/QueryContext";
 import { navLinks } from "../data/data";
 export default function Nav() {
     const [isNavOpen, setIsNavOpen] = useState(false);
+    const { setQuery } = useQueryContext();
     const toggleNav = () => {
         setIsNavOpen((open) => !open);
     };
     const closeNav = () => {
         setIsNavOpen(false);
+    };
+    const handleExerciseClick = () => {
+        setQuery("");
+        console.log("clicked")
     };
     useEffect(function () {
         document.addEventListener("keydown", (e) => {
@@ -36,12 +42,22 @@ export default function Nav() {
             >
                 {navLinks.map((nav) => (
                     <li key={nav.name} onClick={closeNav} className="nav">
-                        <NavLink
-                            className=" px-4 py-3 text-end flex "
-                            to={nav.to}
-                        >
-                            {nav.name}
-                        </NavLink>
+                        {nav.name === "Exercises" ? (
+                            <NavLink
+                                className=" px-4 py-3 text-end flex "
+                                to={nav.to}
+                                onClick={handleExerciseClick}
+                            >
+                                {nav.name}
+                            </NavLink>
+                        ) : (
+                            <NavLink
+                                className=" px-4 py-3 text-end flex "
+                                to={nav.to}
+                            >
+                                {nav.name}
+                            </NavLink>
+                        )}
                     </li>
                 ))}
             </ul>

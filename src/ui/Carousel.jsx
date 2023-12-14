@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import Image from "../components/Image";
+import SwiperComponent from "../components/Swiper";
 import { desktopImages, mobileImages } from "../data/data";
 
 export default function Carousel() {
@@ -15,23 +16,25 @@ export default function Carousel() {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
-        
-      };
+    };
     return (
-        <div className="w-full h-full overflow-hidden">
-            <Slider {...settings}>
-                    {!isMobile
-                        ? desktopImages.map((images) => (
-                              <div key={images.img} className="w-full h-[calc(100dvh-4.7rem)]">
-                                  <Image src={images.img} alt={images.alt} />
-                              </div>
-                          ))
-                        : mobileImages.map((images) => (
-                              <div key={images.img} className="w-full h-[calc(100dvh-4.7rem)]">
-                                  <Image src={images.img} alt={images.alt} />
-                              </div>
-                          ))}
-            </Slider>
-        </div>
+        // <div className="w-full h-full overflow-hidden">
+        //     <Slider {...settings}>
+        //             {!isMobile
+        //                 ? desktopImages.map((images) => (
+        //                       <div key={images.img} className="w-full h-[calc(100dvh-4.7rem)]">
+        //                           <Image src={images.img} alt={images.alt} />
+        //                       </div>
+        //                   ))
+        //                 : mobileImages.map((images) => (
+        //                       <div key={images.img} className="w-full h-[calc(100dvh-4.7rem)]">
+        //                           <Image src={images.img} alt={images.alt} />
+        //                       </div>
+        //                   ))}
+        //     </Slider>
+        // </div>
+        
+            <SwiperComponent />
+        
     );
 }

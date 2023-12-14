@@ -1,0 +1,62 @@
+import React, { useRef, useState } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+// import 'swiper/css/pagination';
+// import 'swiper/css/navigation';
+
+// import './styles.css';
+
+// import required modules
+import { useMediaQuery } from "react-responsive";
+import { Autoplay } from "swiper/modules";
+import { desktopImages, mobileImages } from "../data/data";
+import Image from "./Image";
+
+export default function App() {
+    const isMobile = useMediaQuery({ maxWidth: 768 });
+
+    return (
+        <>
+            <Swiper
+                spaceBetween={30}
+                centeredSlides={true}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                }}
+                // pagination={{
+                //   clickable: true,
+                // }}
+                // navigation={true}
+                modules={[Autoplay]}
+                lazyPreloadPrevNext={true}
+                // modules={[Autoplay, Pagination, Navigation]}
+                className="mySwiper w-full h-[calc(100dvh-4.7rem)] overflow-hidden"
+            >
+                {/* <SwiperSlide>Slide 1</SwiperSlide>
+        <SwiperSlide>Slide 2</SwiperSlide>
+        <SwiperSlide>Slide 3</SwiperSlide>
+        <SwiperSlide>Slide 4</SwiperSlide>
+        <SwiperSlide>Slide 5</SwiperSlide>
+        <SwiperSlide>Slide 6</SwiperSlide>
+        <SwiperSlide>Slide 7</SwiperSlide>
+        <SwiperSlide>Slide 8</SwiperSlide>
+        <SwiperSlide>Slide 9</SwiperSlide> */}
+                {!isMobile
+                    ? desktopImages.map((images) => (
+                          <SwiperSlide key={images.img} className="w-full h-screen ">
+                              <Image src={images.img} alt={images.alt} />
+                          </SwiperSlide>
+                      ))
+                    : mobileImages.map((images) => (
+                          <SwiperSlide key={images.img} className="w-full h-screen">
+                              <Image src={images.img} alt={images.alt} />
+                          </SwiperSlide>
+                      ))}
+            </Swiper>
+        </>
+    );
+}
