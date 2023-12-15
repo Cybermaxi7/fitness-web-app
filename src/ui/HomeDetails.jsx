@@ -6,7 +6,7 @@ export default function HomeDetails() {
     const navigate = useNavigate();
     return (
         <div className="absolute top-[4.7rem] left-0 bg-stone-900/50 w-full h-[calc(100dvh-4.7rem)] text-white flex flex-col items-center justify-center text-center font-medium z-50 ">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl mb-4">
+        <h1 className=" text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4">
             Welcome to{" "}
             <span className="font-semibold text-green-500 bg-stone-900/80 px-1 ">
                 Exercise Hub

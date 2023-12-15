@@ -27,32 +27,25 @@ export default function App() {
                     delay: 2500,
                     disableOnInteraction: false,
                 }}
-                // pagination={{
-                //   clickable: true,
-                // }}
-                // navigation={true}
                 modules={[Autoplay]}
                 lazyPreloadPrevNext={true}
-                // modules={[Autoplay, Pagination, Navigation]}
+                
                 className="mySwiper w-full h-[calc(100dvh-4.7rem)] overflow-hidden"
             >
-                {/* <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide> */}
                 {!isMobile
                     ? desktopImages.map((images) => (
-                          <SwiperSlide key={images.img} className="w-full h-screen ">
+                          <SwiperSlide
+                              key={images.img}
+                              className="w-full h-screen "
+                          >
                               <Image src={images.img} alt={images.alt} />
                           </SwiperSlide>
                       ))
                     : mobileImages.map((images) => (
-                          <SwiperSlide key={images.img} className="w-full h-screen">
+                          <SwiperSlide
+                              key={images.img}
+                              className="w-full h-screen"
+                          >
                               <Image src={images.img} alt={images.alt} />
                           </SwiperSlide>
                       ))}

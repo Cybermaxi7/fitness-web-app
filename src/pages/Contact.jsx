@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 
 export default function Contact() {
+    const navigate = useNavigate()
     const formSubmitHandler = async (event) => {
         event.preventDefault();
     
@@ -20,6 +22,7 @@ export default function Contact() {
     
           if (response.ok) {
             alert('Message sent successfully! We will get back to you soon.');
+            navigate("/")
           } else {
             alert('Error sending message. Please try again later.');
           }
