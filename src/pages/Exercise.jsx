@@ -1,24 +1,33 @@
 import { FaCheck } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+import { IoArrowBack } from "react-icons/io5";
+import { Img } from "react-image";
+import { useNavigate, useParams } from "react-router-dom";
 import Image from "../components/Image";
 import useExercise from "../hooks/useExercise";
 import Loader from "../ui/Loader";
+
+import Spinner from "../ui/Spinner";
 export default function Exercise() {
     const { id } = useParams();
+    const navigate = useNavigate();
     const { data: exercise, isLoading } = useExercise(id);
     // console.log(data)
-    if (isLoading) return <Loader />;
+    if (isLoading) return <Loader one />;
     return (
         <div className="mt-[4.7rem] w-full h-full px-4 py-6  font-open">
             {exercise ? (
-                <div className="bg-white w-full h-full rounded-lg flex items-center justify-between px-6 py-8  text-stone-800 flex-col gap-8 lg:gap-2 lg:flex-row">
-                    <div className="h-full w-full lg:w-1/2">
-                        <Image src={exercise.gifUrl} alt={exercise.name} />
+                <div className="bg-white w-full h-full rounded-lg flex items-center justify-between px-6 py-8  text-stone-800 flex-col gap-8 lg:gap-2 lg:flex-row relative">
+                    <h2 className="uppercase text-green-500 font-bold text-sm sm:text-lg md:text-xl text-center self-center">
+                        {exercise.name}
+                    </h2>
+                    <div className="h-full w-full lg:w-1/2 flex items-center justify-center">
+                        <Img
+                            src={exercise.gifUrl}
+                            alt={exercise.name}
+                            loader={<Spinner />}
+                        />
                     </div>
                     <div className="h-full  w-full lg:w-1/2 flex flex-col gap-4 items-start justify-center">
-                        <h2 className="uppercase text-green-500 font-bold text-sm sm:text-lg md:text-xl text-center self-center">
-                            {exercise.name}
-                        </h2>
                         <div className="flex gap-4 items-center justify-center">
                             <h3 className="uppercase text-green-500 font-semibold">
                                 Equipment
@@ -72,6 +81,12 @@ export default function Exercise() {
                                 </p>
                             ))}
                         </div>
+                    </div>
+                    <div
+                        onClick={() => navigate(-1)}
+                        className="bg-stone-100 w-8 md:w-12 flex items-center justify-center h-8 md:h-12 absolute top-5 md:top-2 left-4 cursor-pointer"
+                    >
+                        <IoArrowBack className="text-xl md:text-3xl text-green-500" />
                     </div>
                 </div>
             ) : (

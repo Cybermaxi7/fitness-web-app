@@ -26,7 +26,7 @@ export default function Nav() {
     }, []);
     return (
         <nav className="">
-            <div className="items-center justify-center bg-green-300 p-2 rounded-md right-0 lg:hidden flex">
+            <div className="items-center justify-center bg-green-300 hover:bg-green-500 transition duration-300 ease-in-out p-2 rounded-md right-0 lg:hidden flex cursor-pointer">
                 {isNavOpen ? (
                     <CgClose onClick={toggleNav} className="text-[24px]" />
                 ) : (

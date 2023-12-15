@@ -4,6 +4,7 @@ import { Suspense, lazy } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import AppLayout from "./ui/AppLayout";
 import { QueryProvider } from "./context/QueryContext";
+import Loader from "./ui/Loader";
 const Homepage = lazy(() => import("./pages/Homepage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Exercises = lazy(() => import("./pages/Exercises"));
@@ -18,7 +19,7 @@ export default function App() {
             <ReactQueryDevtools initialIsOpen={false} />
             <QueryProvider>
                 <Router>
-                    <Suspense fallback={<div>Loading...</div>}>
+                    <Suspense fallback={<Loader />}>
                         <Routes>
                             <Route path="/" element={<AppLayout />}>
                                 <Route index element={<Homepage />} />

@@ -9,7 +9,9 @@ export default function useSearchExercises(query) {
     } = useQuery({
         queryKey: ["search-exercises", query],
         queryFn: () => fetchSearchExercise(query),
+        retry: 3,
+        retryDelay: 1000,
     });
-    
+
     return { data, isLoading, error };
 }

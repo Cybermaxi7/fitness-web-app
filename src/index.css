@@ -10,11 +10,89 @@ body {
     background-color: rgb(240 253 244);
 }
 .nav {
-    @apply bg-white w-40 md:w-auto rounded-lg  hover:bg-green-300 hover:text-white transition duration-300 ease-in-out ;
+    @apply bg-white w-40 md:w-auto rounded-lg  hover:bg-green-300 hover:text-white transition duration-300 ease-in-out;
 }
 .active {
-    @apply bg-green-500 text-white rounded-lg
+    @apply bg-green-500 text-white rounded-lg;
 }
 .btn {
     @apply bg-green-500 px-4 py-2 font-semibold rounded-lg hover:bg-green-700 cursor-pointer transition duration-300 ease-in-out;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader-1 {
+    width: fit-content;
+    font-weight: bold;
+    font-size: 30px;
+    background: linear-gradient(90deg, #3dc912 50%, #0000 0) right/200% 100%;
+    animation: l21 2s infinite linear;
+}
+.loader-1::before {
+    content: "Loading Exercise...";
+    color: #0000;
+    padding: 0 5px;
+    background: inherit;
+    background-image: linear-gradient(90deg, #fff 50%, #0fb91e 0);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.loader-2 {
+    width: fit-content;
+    font-weight: bold;
+    font-size: 30px;
+    background: linear-gradient(90deg, #3dc912 50%, #13bb1c00 0) right/200% 100%;
+    animation: l21 2s infinite linear;
+}
+.loader-2::before {
+    content: "Loading Exercises...";
+    color: #0000;
+    padding: 0 5px;
+    background: inherit;
+    background-image: linear-gradient(90deg, #fff 50%, #0fb91e 0);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+@keyframes l21 {
+    100% {
+        background-position: left;
+    }
+}
+
+.loader {
+    width: fit-content;
+    font-weight: bold;
+    font-size: 30px;
+    background: linear-gradient(90deg, #3dc912 50%, #13bb1c00 0) right/200% 100%;
+    animation: l21 2s infinite linear;
+}
+.loader::before {
+    content: "Loading...";
+    color: #0000;
+    padding: 0 5px;
+    background: inherit;
+    background-image: linear-gradient(90deg, #fff 50%, #0fb91e 0);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+@keyframes l21 {
+    100% {
+        background-position: left;
+    }
+}
+/* On scroll - right */
+.visible-right {
+    @apply opacity-100 translate-x-0 transition-all duration-500 delay-300 ease-out;
+}
+.not-visible-right {
+    @apply opacity-0 translate-x-full;
+}
+/* On-scroll - left */
+.visible-left {
+    @apply opacity-100 translate-x-0 transition-all duration-500 delay-700 ease-out;
+}
+.not-visible-left {
+    @apply opacity-0 -translate-x-full;
 }

@@ -4,7 +4,7 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                open: "Montserrat Alternates, sans-serif",
+                open: "DM sans, sans-serif",
                 mont: "Montserrat Subrayada, sans-serif",
             },
             screens: {
