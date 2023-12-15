@@ -23,7 +23,7 @@ export default function Header() {
             <div className=" text-4xl md:text-2xl text-green-500 font-mont">
                 <Link
                     to="/"
-                    className="hover:text-green-700  transition duration-400 ease-in-out whitespace-nowrap"
+                    className="hover:text-green-600  transition duration-400 ease-in-out whitespace-nowrap"
                 >
                     {isMobile ? "EH" : "Exercise Hub"}
                 </Link>
