@@ -11,14 +11,18 @@ export default function SearchResult() {
 
     if (isLoading) return <Loader />;
     return (
-        <div className="mt-[4.7rem] h-[calc(100dvh-4.7rem)] px-4 py-6 font-open text-stone-800">
+        <div className="mt-[4.7rem] h-[calc(100dvh-4.7rem)] px-4 py-6 font-open text-stone-800 flex-1">
             <h3 className="pb-4 font-semibold">
                 Showing results for{" "}
                 <span className="text-green-500">{query}</span>
             </h3>
             <div className="grid  grid-cols-1 xsm:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 items-center bg-white justify-start gap-4 md:gap-8 px-4 py-6 rounded-md shadow-md">
                 {error ? (
-                    <div className="col-span-3">Exercises with name <span className="font-semibold">{query}</span> couldn't be found, try rephrasing the search term</div>
+                    <div className="col-span-3">
+                        Exercises with name{" "}
+                        <span className="font-semibold">{query}</span> couldn't
+                        be found, try rephrasing the search term
+                    </div>
                 ) : (
                     exercise?.map((exercise) => (
                         <div

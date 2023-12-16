@@ -11,7 +11,6 @@ const Exercises = lazy(() => import("./pages/Exercises"));
 const Exercise = lazy(() => import("./pages/Exercise"));
 const Contact = lazy(() => import("./pages/Contact"));
 const About = lazy(() => import("./pages/About"));
-const SearchResults = lazy(() => import("./pages/SearchResults"));
 const queryClient = new QueryClient();
 export default function App() {
     return (
@@ -30,10 +29,6 @@ export default function App() {
                                 <Route
                                     path="/exercise/:id"
                                     element={<Exercise />}
-                                />
-                                <Route
-                                    path="/search"
-                                    element={<SearchResults />}
                                 />
                                 <Route path="/about" element={<About />} />
                                 <Route path="/contact" element={<Contact />} />
