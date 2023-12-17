@@ -1,6 +1,6 @@
 const url = "https://exercises-api-xbpi.onrender.com";
 export async function fetchExercises() {
-    const response = await fetch(`${url}/exercises`);
+    const response = await fetch(`${url}/exercises?limit=100`);
     if (!response.ok) {
         throw new Error(
             "Couldn't fetch exercies, please try reloading the page"
@@ -31,7 +31,7 @@ export async function fetchTargets() {
 }
 
 export async function fetchExercise(id) {
-    const response = await fetch(`${url}/exercises/${id}`);
+    const response = await fetch(`${url}/exercises?id=${id}`);
     if (!response.ok) {
         throw new Error(
             "Couldn't fetch exercise, please try reloading the page"

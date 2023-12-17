@@ -39,8 +39,8 @@ export default function Header() {
 
                 <input
                     type="text"
-                    placeholder="Search for Exercises"
-                    className="w-full outline-none px-2 py-2 placeholder:text-inherit "
+                    placeholder={isMobile ? "Search for Exercises": "Search for Exercises like squats, deadlift"}
+                    className="w-full outline-none px-2 py-2 placeholder:text-inherit placeholder:text-stone-500 "
                     value={search}
                     onChange={handleChange}
                 />

@@ -11,7 +11,7 @@ export default function SearchResult() {
 
     if (isLoading) return <Loader />;
     return (
-        <div className="mt-[4.7rem] h-[calc(100dvh-4.7rem)] px-4 py-6 font-open text-stone-800 flex-1">
+        <div className="mt-[4.7rem] h-full px-4 py-6 font-open text-stone-800 flex-1">
             <h3 className="pb-4 font-semibold">
                 Showing results for{" "}
                 <span className="text-green-500">{query}</span>

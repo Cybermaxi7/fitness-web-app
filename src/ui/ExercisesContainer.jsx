@@ -1,5 +1,6 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Img } from "react-image";
+import { useSelector } from "react-redux";
 import { Link, useSearchParams } from "react-router-dom";
 import Image from "../components/Image";
 import useExercises from "../hooks/useExercises";
@@ -9,26 +10,23 @@ import Spinner from "./Spinner";
 
 export default function ExercisesContainer() {
     const exercisesSectionRef = useRef();
+  const { isLoading, exercisesInStore: exercises } = useExercises();
+  console.log(exercises)
+  const [searchParams] = useSearchParams();
 
-    const [searchParams] = useSearchParams();
-    console.log(searchParams);
-    const { data: exercises, isLoading } = useExercises();
-    console.log(exercises);
-    //Filter operations
-    const firstKey = searchParams.keys().next().value;
-    console.log(firstKey);
-    const filteredValue = searchParams.get(firstKey) || "all";
-    let filteredExercises;
-    if (filteredValue !== "all") {
-        // Only filter when the value is not "all"
-        filteredExercises = exercises?.filter(
-            (exercise) => exercise[firstKey] === filteredValue
-        );
-    } else {
-        // When the value is "all," use the original exercises array
-        filteredExercises = exercises;
-    }
-    if (isLoading) return <Loader two />;
+  
+
+  const firstKey = searchParams.keys().next().value;
+  const filteredValue = searchParams.get(firstKey) || "all";
+  // Only when filter value is not all
+  const filteredExercises =
+    filteredValue !== "all"
+      ? exercises.data?.filter((exercise) => exercise[firstKey] === filteredValue)
+      : exercises.data;
+
+  if (isLoading) {
+    return <Loader two />;
+  }
     return (
         <div className="mt-[4.7rem] px-4 py-6 font-open text-stone-800">
             <FilterOperation scrollToRef={exercisesSectionRef} />
@@ -60,6 +58,7 @@ export default function ExercisesContainer() {
                     </div>
                 ))}
             </div>
+            <div>Want More? Search for Exercises</div>
         </div>
     );
 }

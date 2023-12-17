@@ -11,29 +11,30 @@ export default function Exercise() {
     const { id } = useParams();
     const navigate = useNavigate();
     const { data: exercise, isLoading } = useExercise(id);
-    // console.log(data)
+    console.log(exercise);
+
     if (isLoading) return <Loader one />;
     return (
-        <div className="mt-[4.7rem] w-full h-full px-4 py-6  font-open">
+        <div className="mt-[4.7rem] w-full h-full lg:h-screen px-4 py-6  font-open">
             {exercise ? (
                 <div className="bg-white w-full h-full rounded-lg flex items-center justify-between px-6 py-8  text-stone-800 flex-col gap-8 lg:gap-2 lg:flex-row relative">
-                    <h2 className="uppercase text-green-500 font-bold text-sm sm:text-lg md:text-xl text-center self-center">
-                        {exercise.name}
-                    </h2>
                     <div className="h-full w-full lg:w-1/2 flex items-center justify-center">
                         <Img
-                            src={exercise.gifUrl}
-                            alt={exercise.name}
+                            src={exercise[0].gifUrl}
+                            alt={exercise[0].name}
                             loader={<Spinner />}
                         />
                     </div>
-                    <div className="h-full  w-full lg:w-1/2 flex flex-col gap-4 items-start justify-center">
+                    <div className="h-full w-full lg:w-1/2 flex flex-col gap-4 items-start justify-center">
+                    <h2 className="uppercase text-green-500 font-bold text-sm sm:text-lg md:text-xl text-center self-center">
+                        {exercise[0].name}
+                    </h2>
                         <div className="flex gap-4 items-center justify-center">
                             <h3 className="uppercase text-green-500 font-semibold">
                                 Equipment
                             </h3>
                             <p className="text-xs sm:text-sm md:text-lg">
-                                {exercise.equipment}
+                                {exercise[0].equipment}
                             </p>
                         </div>
                         <div className="flex gap-4 items-center justify-center">
@@ -41,7 +42,7 @@ export default function Exercise() {
                                 Target
                             </h3>
                             <p className="text-xs sm:text-sm md:text-lg">
-                                {exercise.target}
+                                {exercise[0].target}
                             </p>
                         </div>
                         <div className="flex gap-4 items-center justify-center">
@@ -49,14 +50,14 @@ export default function Exercise() {
                                 Body Part
                             </h3>
                             <p className="text-xs sm:text-sm md:text-lg">
-                                {exercise.bodyPart}
+                                {exercise[0].bodyPart}
                             </p>
                         </div>
                         <div className="flex gap-4 items-center justify-center">
                             <h3 className="uppercase text-green-500 font-semibold">
                                 Secondary Muscle
                             </h3>
-                            {exercise.secondaryMuscles.map((muscle, index) => (
+                            {exercise[0].secondaryMuscles.map((muscle, index) => (
                                 <p
                                     key={index}
                                     className="text-xs sm:text-sm md:text-lg"
@@ -69,7 +70,7 @@ export default function Exercise() {
                             <h3 className="text-center  uppercase font-semibold text-green-500 text-sm md:text-lg">
                                 Instructions
                             </h3>
-                            {exercise.instructions.map((instruction, index) => (
+                            {exercise[0].instructions.map((instruction, index) => (
                                 <p
                                     key={index}
                                     className="flex items-center gap-2"
